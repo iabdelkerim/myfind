@@ -2,10 +2,10 @@
 void find(char *path, int mode, enum OPTION option,struct list * l){
     struct stat tmp;
     lstat(path,&tmp);
-    // if(S_ISLNK(tmp.st_mode)==1 && (option==P)){
-    //     printf("%s\n",path);
-    //     return;
-    // }
+    if(S_ISLNK(tmp.st_mode)==1 && (option==P)){
+         printf("%s\n",path);
+         return;
+     }
     DIR * a= open_directory(path);
     if (!a)
         return ;
